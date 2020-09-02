@@ -12,5 +12,5 @@
 Instalando e montando ambiente no Linux:
 ========================================
 
-Instalando com PyPi
+Instalando com PyPi<br>
 <a href="https://pypi.org/project/pyspark/">PySpark</a> est disponível em pypi. Para instalar execute o seguinte comando via terminal: pip install pyspark.
