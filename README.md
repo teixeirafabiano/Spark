@@ -35,7 +35,7 @@ O DAG (Direct Acyclic Graph) é responsável por mapear todas as action e transf
 Depois que uma operação é feita, a não ser que seja configurado pelo recurso de persistência, o Spark não deixará todos os RDDs em memória. Por padrãoo Spark insere no cache dados intermediários quando uma tarefa é finalizada essa operação é conhecida como resultado da stage.
 
 <center>
-  <img src="ArquiteturaSpark.png">
+  <img src="ArquiteturaSpark.png" align="center">
 </center>
 
 Road Map
