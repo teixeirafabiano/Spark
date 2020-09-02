@@ -19,7 +19,21 @@ Todas as operações serão traduzidas para um plano de execução lógico conhe
 
 Os Worker Node onde estão os Executors são os responsáveis por executar as tarefas, parametrizadas no driver program, de forma distribuída. Como estamos falando de execução distribuída é muito comum ter mais de um worker node envolvido na resolução de problemas que fazem do Spark como solução. 
 
-Portanto entre o driver program e os worker nodes existe um cluster manager que faz a gestão dos recursos: memória e CPU, alocados nos worker nodes. O cluster manager pode ser do próprio Spark ou ferramenta de outro fornecedor.
+Portanto entre o driver program e os worker nodes existe um cluster manager que faz a gestão dos recursos: memória e CPU, alocados nos worker nodes. O cluster manager pode ser do próprio Spark ou ferramenta de outro fornecedor, por exemplo: Yarn. Fazendo uso ou não do cluster manager, é importante saber o local onde o driver program irá rodar, e isso é definido pelo modo de execução do Spark.
+
+No modo Standalone, o spark executa em uma única máquina e não utiliza o cluster manager. Neste modo também não há a figura do work node e todo processamento é feito em uma única máquina. Ainda assim é possível distribuir processamento pelo processador.
+
+No modo client mode, o driver program roda na mesma máquina em que o programa foi iniciado.
+
+No modo cluster mode, o driver program roda em qualquer máquina do cluster.
+
+Entretanto, o principal componente do Spark são os RDD (Resilient Distributed Dataset) que são coleções de objetos particionadas em várias máquinas do cluster e podem ser processadas em paralelo. É a estrutura onde os dados são carregados e distribuídos em diferentes máquinas. São por definição, IMUTÁVEIS e pode-se fazer duas operações com os RDD: transformações e ações. As transformações não são processadas no momento em que o comando é executado. Lembre-se: RDD são IMUTÁVEIS. Portanto, uma transformação de uma nova coluna é criar um novo RDD. As transformações serão executadas SOMENTE quando uma operação de ação for encontrada.
+
+Portanto, os RDDs devem conhecer suas listas de partições, possuir compute functions (action e transformation) e saber gerenciar as dependências de cálculo (DAG).
+O DAG (Direct Acyclic Graph) é responsável por mapear todas as action e transformation do programa, bem como os stages e suas tasks.
+
+Depois que uma operação é feita, a não ser que seja configurado pelo recurso de persistência, o Spark não deixará todos os RDDs em memória. Por padrãoo Spark insere no cache dados intermediários quando uma tarefa é finalizada essa operação é conhecida como resultado da stage.
+
 
 
 
