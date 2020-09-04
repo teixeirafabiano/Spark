@@ -8,8 +8,8 @@
   <li>Analisar dados em tempo real</li>
 </ul>
 
-Funcionamento Resumido
-======================
+Um breve resumo do funcionamento
+================================
 
 Driver Program é o responsável por orquestra a execução do programa. É a função Main onde está toda a lógica de execução do código. Possui um tamanho de memória alocada então é importante ficar atento para que não haja estouro de meória.
 
@@ -38,6 +38,16 @@ Depois que uma operação é feita, a não ser que seja configurado pelo recurso
     <tr>
       <td colspan="2">
         <img src="ArquiteturaSpark2.png" align="center">
+      </td>
+    </tr>
+</table>
+
+Um plano de execução lógico só estará no Driver Program assim que executar um Action. Como no seguinte comando: ALUNOS.MAP(...).FILTER(...).REDUCEBYKEY(...).COLLECT(), onde a função COLLECT() é um Action. Portanto, até que o action seja executado, NADA estará no Driver Program.
+
+<table border=0 align="center">
+    <tr>
+      <td colspan="2">
+        <img src="TaskSpark.png" align="center">
       </td>
     </tr>
 </table>
