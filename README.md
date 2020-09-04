@@ -37,7 +37,7 @@ Depois que uma operação é feita, a não ser que seja configurado pelo recurso
 <table border=0 align="center">
     <tr>
       <td colspan="2">
-        <img src="ArquiteturaSpark.png" align="center">
+        <img src="ArquiteturaSpark2.png" align="center">
       </td>
     </tr>
 </table>
