@@ -52,6 +52,13 @@ Um plano de execução lógico só estará no Driver Program assim que executar 
     </tr>
 </table>
 
+E por meio de execução do plano físico que o Spark executa as tarefas do Driver Program. E como isso é feito? Para tal, é preciso conhecer os tipos de relacionamentos existente entre cada etapa da operação. Os relacionamento são classificados como: Narrow e Wide dependencies. Sempre há uma partição pai e uma filha envolvidas, portanto, é possível definir as partições da seguinte forma:
+
+<ul>
+  <li>Narrow Dependency: A partição filha depende de todos os dados da partição pai MESMO SE a partição pai entregar todos os seus dados para outra partição filha.</li>
+  <li>Na Wide Dependency: A partição filha depende de uma parte de cada partição pai.</li>
+</ul>
+
 Road Map
 ========
 <ul>
