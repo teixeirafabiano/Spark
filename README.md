@@ -1,4 +1,4 @@
-# Spark
+<img src="spark-logo-trademark.png">
 
 É uma plataforma analítica unificada para o processamento de dados em larga escala. Ou seja, o Spark pode ser utlizado em vários use cases distintos sem precisar combinar ferramentas para resolver problemas diferentes. Em geral, o Apache Spark é utilizado em use case analítico:
 
