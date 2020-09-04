@@ -59,7 +59,9 @@ E por meio de execução do plano físico que o Spark executa as tarefas do Driv
   <li>Na Wide Dependency: A partição filha depende de uma parte de cada partição pai.</li>
 </ul>
 
-Portanto, a partir do conceito de narrow e wide, a tasks MAP e FILTER da imagem acima são narrow enquanto a task REDUCEBYKEY é wide. O ponto que divide as tarefas narrow e wide é chamado de shift e nesse ponto o spark quebra em stages diferentes. Essa operação é conhecida como task boundary.
+Portanto, a partir do conceito de narrow e wide, a tasks MAP e FILTER da imagem acima são narrow enquanto a task REDUCEBYKEY é wide e  necessário uma operação de shift para montar essa partição. Existe uma quebra no ponto que divide as tarefas narrow e wide em stages diferentes, essa operação é conhecida como task boundary ou limite de tarefas. Dessa forma cada stage possui seu conjunto de tarefas. 
+
+Portanto, a stage até o limite do relacionamento narrow, chamada de stage 0, possui 4 tarefas (PARTIÇÃO 1, PARTIÇÃO 2, PARTIÇÃO 3 e PARTIÇÃO 4) sendo que cada uma está encarregada de processar as etapas 1 e 2 (MAP e FILTER) de cada partição. A stage 1, de relacionamento wide, tabém possui 4 tarefas e cada uma é responsável pelas operações de shift em suas partições. Toda essa execução é chamado de PIPELINE de execução do programa que dará origem ao plano físico do Spark.
 
 Road Map
 ========
