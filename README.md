@@ -68,9 +68,9 @@ O fato dos RDDS serem imutáveis permite ao Spark manter em cache os resultados 
 É possível mudar a forma como o Spark grava objetos através do comando persist:
 
 <ul>
-  <li>Memory_only: todos os dados dos RDDs são salvos em memória. A parte excedente será recalculada sempre que necessário.</li>
-  <li>Disk_only: todos os dados dos RDDs são salvos em disco.</li>
-  <li>Memory_and_disk: todos os dados dos RDDs são salvos em memória e o excedente em disco.</li>
+  <li><b>Memory_only:</b> todos os dados dos RDDs são salvos em memória. A parte excedente será recalculada sempre que necessário.</li>
+  <li><b>Disk_only:</b> todos os dados dos RDDs são salvos em disco.</li>
+  <li><b>Memory_and_disk:</b> todos os dados dos RDDs são salvos em memória e o excedente em disco.</li>
 </ul>
 
 Se a memória estiver full, o Spark apaga os RDDs mais antigos e esse processo é conhecido como Least recente used (LRU).
