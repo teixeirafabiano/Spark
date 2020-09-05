@@ -75,6 +75,14 @@ O fato dos RDDS serem imutáveis permite ao Spark manter em cache os resultados 
 
 Se a memória estiver full, o Spark apaga os RDDs mais antigos e esse processo é conhecido como Least recente used (LRU).
 
+Mas o que acontece se um dos work nodes não estiver disponível? (Tolerância à falha?)
+Seria uma resposta simples se o Spark não fosse baseado em in memory computing. O Spark usa muita memória RAM e não é possível replicar dados de memória RAM para outros work nodes. É através da gestão do lineage pelos RDDs em cada operação que é possível encaminhar a tarefa de uma partição indisponível para outra partição disponível.
+
+Quais são as vantagens do Spark?
+
+Basicamente, duas: RDD e DAG. Permite que Spark implemente in memory computing de forma muito eficiente, permitindo que se recupere de falhas mesmo mantendo dados em memória de máquinas diferentes. O que é uma característica importante no mundo de analytics onde trabalha-se com processos interativos ou interativos. Em processos iterativos exige a reutilização dos RDDs várias vezes. Nos processos interativos os dados em memória ajudam na busca das respostas.
+
+
 Road Map
 ========
 <ul>
@@ -90,3 +98,12 @@ Instalando e montando ambiente no Linux:
 ========================================
 Instalando com PyPi<br>
 <a href="https://pypi.org/project/pyspark/">PySpark</a> está disponível em pypi. Para instalar execute o seguinte comando via terminal: pip install pyspark. Dica: Por mais que seja estável, não instale a última versão!
+
+Bibliografia:
+=============
+
+<h1 class="t-title">Spark: The Definitive Guide</h1>
+<div class="t-authors">by <span class="author-name">Bill Chambers</span>, <span class="author-name">Matei Zaharia</span></div>
+<div class="t-release-date">Released February 2018</div>
+<div class="t-publisher">Publisher(s): O&#x27;Reilly Media, Inc.</div>
+<div class="t-isbn">ISBN: 9781491912218</div>
