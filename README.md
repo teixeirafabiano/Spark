@@ -102,7 +102,7 @@ Instalando com PyPi<br>
 Bibliografia:
 =============
 
-<h1 class="t-title">Spark: The Definitive Guide</h1>
+<h1 class="t-title"><a href="https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/">Spark: The Definitive Guide</a></h1>
 <div class="t-authors">by <span class="author-name">Bill Chambers</span>, <span class="author-name">Matei Zaharia</span></div>
 <div class="t-release-date">Released February 2018</div>
 <div class="t-publisher">Publisher(s): O&#x27;Reilly Media, Inc.</div>
