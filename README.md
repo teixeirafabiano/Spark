@@ -63,6 +63,18 @@ Portanto, a partir do conceito de narrow e wide, a tasks MAP e FILTER da imagem 
 
 Portanto, a stage até o limite do relacionamento narrow, chamada de stage 0, possui 4 tarefas (PARTIÇÃO 1, PARTIÇÃO 2, PARTIÇÃO 3 e PARTIÇÃO 4) sendo que cada uma está encarregada de processar as etapas 1 e 2 (MAP e FILTER) de cada partição. A stage 1, de relacionamento wide, tabém possui 4 tarefas e cada uma é responsável pelas operações de shift em suas partições. Toda essa execução é chamado de PIPELINE de execução do programa que dará origem ao plano físico do Spark.
 
+O fato dos RDDS serem imutáveis permite ao Spark manter em cache os resultados parciais de cada stage da operação. Isso ajuda em pipelines complexos, pois, as stages são quebradas sempre que encontraram um relacionamento do tipo wide. Significa que na operação acima de exemplo, se o comando for executado uma outra vez, o Spark já possui o resultado da primeira stage em cache, precisando executar somente as tarefas da segunda stage. Entretanto, se no exemplo houvesse apenas um relacionamento que no caso seria narrow, o Spark não possuiria o resultado em cache e todo pipeline seria executado novamente.
+
+É possível mudar a forma como o Spark grava objetos através do comando persist:
+
+<ul>
+  <li>Memory_only: todos os dados dos RDDs são salvos em memória. A parte excedente será recalculada sempre que necessário.</li>
+  <li>Disk_only: todos os dados dos RDDs são salvos em disco.</li>
+  <li>Memory_and_disk: todos os dados dos RDDs são salvos em memória e o excedente em disco.</li>
+</ul>
+
+Se a memória estiver full, o Spark apaga os RDDs mais antigos e esse processo é conhecido como Least recente used (LRU).
+
 Road Map
 ========
 <ul>
