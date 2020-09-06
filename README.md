@@ -86,6 +86,21 @@ Enquanto o driver program é reponsável pelo processo executar a aplicação sp
 
 Então, dependendo do modo de execução do Spark (client mode ou cluster mode) os componentes do programa Spark irão se conectar aos componentes do cluster manager. No cluster mode, o cluster manager irá possuir o mapeamento do master node, onde possui seu próprio driver, e dos worker nodes. Quando a aplicação Spark é submetida, o driver manager aloca recursos para executar o driver program em um dos worker nodes e só depois irá alocar recursos para executar as tarefas nos outros worker nodes.
 
+
+<table border=0 align="center">
+    <tr>
+      <td><b>Cluster Mode</b></td>
+      <td><b>Client Mode</b></td>
+    </tr>
+    <tr>
+      <td>
+        <img src="clusterMode.png">
+      </td>
+      <td>
+        <img src="clientMode.png">
+    </tr>
+</table>
+
 Road Map
 ========
 <ul>
