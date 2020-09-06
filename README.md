@@ -19,7 +19,7 @@ Todas as operações serão traduzidas para um plano de execução lógico conhe
 
 Os Worker Node onde estão os Executors são os responsáveis por executar as tarefas, parametrizadas no driver program, de forma distribuída. Como estamos falando de execução distribuída é muito comum ter mais de um worker node envolvido na resolução de problemas que fazem do Spark como solução. 
 
-Portanto entre o driver program e os worker nodes existe um cluster manager que faz a gestão dos recursos: memória e CPU, alocados nos worker nodes. O cluster manager pode ser do próprio Spark ou ferramenta de outro fornecedor, por exemplo: Yarn. Fazendo uso ou não do cluster manager, é importante saber o local onde o driver program irá rodar, e isso é definido pelo modo de execução do Spark.
+Portanto entre o driver program e os worker nodes existe um cluster manager que faz a gestão dos recursos: memória e CPU, alocados nos worker nodes. O cluster manager pode ser do próprio Spark ou ferramenta de outro fornecedor, por exemplo: Yarn ou Kubernets. Fazendo uso ou não do cluster manager, é importante saber o local onde o driver program irá rodar, e isso é definido pelo modo de execução do Spark.
 
 No modo Standalone, o spark executa em uma única máquina e não utiliza o cluster manager. Neste modo também não há a figura do work node e todo processamento é feito em uma única máquina. Ainda assim é possível distribuir processamento pelo processador.
 
@@ -82,7 +82,9 @@ Quais são as vantagens do Spark?
 
 Basicamente, duas: RDD e DAG. Permite que Spark implemente in memory computing de forma muito eficiente, permitindo que se recupere de falhas mesmo mantendo dados em memória de máquinas diferentes. O que é uma característica importante no mundo de analytics onde trabalha-se com processos interativos ou interativos. Em processos iterativos exige a reutilização dos RDDs várias vezes. Nos processos interativos os dados em memória ajudam na busca das respostas.
 
-Enquanto o driver program é reponsável pelo processo executar a aplicação spark, o cluster manager possui abstração para representar seu próprio driver e o work node. Portanto, o cluster manager através do cluster driver node gerencia as máquinas físicas do cluster. O driver do cluster manager existe independemente da aplicação spark existir.
+Enquanto o driver program é reponsável pelo processo executar a aplicação spark, o cluster manager possui abstração para representar seu próprio driver e o work node. Portanto, o cluster manager através do cluster driver node gerencia as máquinas físicas do cluster. O driver do cluster manager existe independente da aplicação spark existir. Quando uma aplicação é submetida ao cluster drive, o spark context irá pedir recursos para o cluster manager. Dependendo de como a aplicação foi configurada, o cluster manager irá alocar recursos para rodar o drive program do spark e as devidas tarefas.
+
+Para que isso ocorra é preciso 
 
 Road Map
 ========
