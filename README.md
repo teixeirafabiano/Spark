@@ -104,6 +104,15 @@ Enquanto a aplicação estiver executando, os worker nodes podem comunicar-se na
     </tr>
 </table>
 
+A manipulação de dados no Spark é classificada em duas categorias:
+
+<ul>
+  <li><b>Structure APIs:</b>que é informada na documentação para ser utilizada sempre que possível. Refere-se a uma coleção de APIs que são utilizadas para processar dados: Dataframe, SQL Tables Views e Dataset. Utilizadas para procesamento em batch e tempo real. O uso das Structured APIs significa não precisar manipular diretamento os RDDs do Spark. Outras linguagens oferecem estruturas de dados similares como o Pandas no Python e o Dataframe no R. Quando essas estruturas são utilizadas, o Spark asscocia um RDD, portanto, tudo roda sobre o RDD automaticamente.</li>
+  <li><b>Low Level APIs:</b>Diferente das Structured APIs, no uso das Low Level APIs é necessário manipular diretamente estruturas mais complexas do Spark como RDD e Distributed Shared Variables (Brodacast Variables ou Accumulators).</li>
+</ul>
+  
+
+
 Road Map
 ========
 <ul>
