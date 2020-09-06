@@ -82,6 +82,7 @@ Quais são as vantagens do Spark?
 
 Basicamente, duas: RDD e DAG. Permite que Spark implemente in memory computing de forma muito eficiente, permitindo que se recupere de falhas mesmo mantendo dados em memória de máquinas diferentes. O que é uma característica importante no mundo de analytics onde trabalha-se com processos interativos ou interativos. Em processos iterativos exige a reutilização dos RDDs várias vezes. Nos processos interativos os dados em memória ajudam na busca das respostas.
 
+Enquanto o driver program é reponsável pelo processo executar a aplicação spark, o cluster manager possui abstração para representar seu próprio driver e o work node. Portanto, o cluster manager através do cluster driver node gerencia as máquinas físicas do cluster. O driver do cluster manager existe independemente da aplicação spark existir.
 
 Road Map
 ========
