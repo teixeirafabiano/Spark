@@ -84,7 +84,7 @@ Basicamente, duas: RDD e DAG. Permite que Spark implemente in memory computing d
 
 Enquanto o driver program é reponsável pelo processo executar a aplicação spark, o cluster manager possui abstração para representar seu próprio driver e o work node. Portanto, o cluster manager através do cluster driver node gerencia as máquinas físicas do cluster. O driver do cluster manager existe independente da aplicação spark existir. Quando uma aplicação é submetida ao cluster drive, o spark context irá pedir recursos para o cluster manager. Dependendo de como a aplicação foi configurada, o cluster manager irá alocar recursos para rodar o drive program do spark e as devidas tarefas.
 
-Para que isso ocorra é preciso 
+Então, dependendo do modo de execução do Spark (client mode ou cluster mode) os componentes do programa Spark irão se conectar aos componentes do cluster manager. No cluster mode, o cluster manager irá possuir o mapeamento do master node, onde possui seu próprio driver, e dos worker nodes. Quando a aplicação Spark é submetida, o driver manager aloca recursos para executar o driver program em um dos worker nodes e só depois irá alocar recursos para executar as tarefas nos outros worker nodes.
 
 Road Map
 ========
