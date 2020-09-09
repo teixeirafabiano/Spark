@@ -1,0 +1,22 @@
+Contexto
+Um pequeno conjunto de dados de cartão de crédito para análise econométrica simples.
+
+Conteúdo
+card: variável fictícia, 1 se o pedido de cartão de crédito for aceito, 0 se não for
+reports: Número de relatórios depreciativos principais
+age: idade n anos mais duodécimos de um ano
+income: renda anual (dividida por 10.000)
+share: relação entre despesas mensais com cartão de crédito e renda anual
+expenditure: gasto médio mensal com cartão de crédito
+owner: 1 se for dono de casa, 0 se alugar
+selfempl: 1 se for autônomo, 0 se não for.
+dependents: 1 + número de dependentes
+months: meses morando no endereço atual
+majorcards: número dos principais cartões de crédito mantidos
+active: número de contas de crédito ativas
+
+Notas:
+Segundo Greene (2003, p. 952) dependentes é igual a 1 + número de dependentes. Isso é descrito acima. Os autores do pacote "AER" em R acreditam que seja o número de dependentes. A definição correta não está resolvida neste momento.
+
+Reconhecimentos:
+Este conjunto de dados foi publicado originalmente junto com a 5ª edição do livro Econometric Analysis de William Greene.
